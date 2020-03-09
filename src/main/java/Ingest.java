@@ -18,9 +18,9 @@ public class Ingest {
             Scanner read = new Scanner(file);
             read.useDelimiter(",");
 
-            String[] meta = read.nextLine().split(",");
-            int numRows = Integer.parseInt(meta[0]);
-            int numCols = Integer.parseInt(meta[1]);
+//            String[] meta = read.nextLine().split(",");
+//            int numRows = Integer.parseInt(meta[0]);
+//            int numCols = Integer.parseInt(meta[1]);
 
             for (int i = 0; read.hasNextLine(); i++) {
                 String line = read.nextLine();
