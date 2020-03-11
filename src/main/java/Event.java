@@ -74,7 +74,12 @@ public class Event {
         return String.format("{}/{}/{}", day, month, year);
     }
 
-    public int getMonth() {
+    private int dealWithAdar(int month, int year) {
+        try {
+            JewishCalendar jc = new JewishCalendar(year, month, 1);
+        } catch (IllegalArgumentException e) {
+            if (month == 13) return 12;
+        }
         return month;
     }
 
