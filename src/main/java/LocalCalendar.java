@@ -1,8 +1,6 @@
 import net.sourceforge.zmanim.hebrewcalendar.HebrewDateFormatter;
 import net.sourceforge.zmanim.hebrewcalendar.JewishCalendar;
-import net.sourceforge.zmanim.hebrewcalendar.JewishDate;
 
-import java.time.Month;
 import java.util.Calendar;
 
 public class LocalCalendar {
@@ -10,16 +8,10 @@ public class LocalCalendar {
         JewishCalendar jd = new JewishCalendar();
         HebrewDateFormatter hdf = new HebrewDateFormatter();
 
+        int currentJYear = jd.getJewishYear();
+
         jd.setGregorianDate(2020, Calendar.MARCH, 9);
 
-        System.out.println(jd);
-        System.out.println(jd.getGregorianCalendar().getTime());
-
-        hdf.setHebrewFormat(true); // change formatting to Hebrew
-        System.out.println(hdf.format(jd)); // date formatted in Hebrew
-    }
-
-    public void out(String type, int numYears) {
-
+        JewishCalendar jd2 = new JewishCalendar(currentJYear + 1, jd.getJewishMonth(), jd.getJewishDayOfMonth());
     }
 }

@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Scanner; // Import the Scanner class to read text files
 
 public class Ingest {
-    String[][] info;
     ArrayList<Event> events = new ArrayList<Event>();
 
     public Ingest(String filename) {
@@ -17,10 +16,6 @@ public class Ingest {
             File file = new File(filename);
             Scanner read = new Scanner(file);
             read.useDelimiter(",");
-
-//            String[] meta = read.nextLine().split(",");
-//            int numRows = Integer.parseInt(meta[0]);
-//            int numCols = Integer.parseInt(meta[1]);
 
             for (int i = 0; read.hasNextLine(); i++) {
                 String line = read.nextLine();
@@ -39,6 +34,11 @@ public class Ingest {
             for (Event e : events) {
                 System.out.println(e);
             }
+            for (Event e : events) {
+//                e.hebFallsOn(10);
+                e.createICSEvent();
+            }
+
 
             read.close();
         } catch (FileNotFoundException e) {
@@ -51,23 +51,4 @@ public class Ingest {
         return events;
     }
 
-    public static void main(String[] args) {
-        Ingest in = new Ingest("");
-    }
-
-    public void initInfo(int rows, int cols) {
-        this.info = new String[rows][cols];
-    }
-
-    public String[][] getInfo() {
-        return info;
-    }
-
-    public void print2DArray(String[][] arr) {
-        for (int i = 0; i < arr.length; i++) {
-            for (int j = 0; j < arr[0].length; j++) {
-                System.out.print(arr[i][j] + ",");
-            }
-        }
-    }
 }
